@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import "./App.css";
+import Detail from "./components/Detail";
 
 function App() {
   const [visible, setVisible] = useState(undefined)
@@ -14,7 +15,7 @@ function App() {
     setData(json)
   }, [])
 
-  const { title, description } = visible || {}
+  const { id } = visible || {}
 
 	return (
 		<div>
@@ -31,22 +32,14 @@ function App() {
 					}}
 				>
 					<div className="modal card">
-						<div style={{ display: "flex" }}>
-							<span style={{ fontWeight: 'bold' }}>
-                {title}
-              </span>
+						<Detail id={id}>
 							<button
 								style={{ marginLeft: "auto" }}
 								onClick={() => setVisible(undefined)}
 							>
 								X
 							</button>
-						</div>
-            <div>
-              <div>
-                {description}
-              </div>
-            </div>
+						</Detail>
 					</div>
 				</div>
 			)}
@@ -64,7 +57,7 @@ function App() {
 				return (
 					<div className="movie_card card" key={id}>
 						<img src={image} width={200} />
-						<div style={{ position: "relative" }}>
+						<div style={{ position: "relative", marginLeft: 10 }}>
 							<h1 style={{ padding: "5px 0px" }}>제목: {title}</h1>
 							<span>감독: {director}</span>
 							<span>연출: {producer}</span>

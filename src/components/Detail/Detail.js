@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function Detail(props) {
-  const { id, children } = props
-
+  const { children } = props
+  const { id } = useParams();
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState({});
+	const navigate = useNavigate();
+
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
@@ -29,6 +32,7 @@ export default function Detail(props) {
 			) : (
 				<>
 					<div style={{ display: "flex" }}>
+						<button onClick={() => navigate(-1)} style={{ marginRight: 5 }}>{"<"}</button>
 						<span style={{ fontWeight: "bold" }}>{title}</span>
 						{children}
 					</div>

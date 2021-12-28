@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./App.css";
 import Detail from "./components/Detail";
@@ -6,6 +7,7 @@ import Detail from "./components/Detail";
 function App() {
   const [visible, setVisible] = useState(undefined)
   const [data, setData] = useState([]);
+	const navigate = useNavigate();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
@@ -66,7 +68,7 @@ function App() {
 							<span>평점: {rt_score} / 100</span>
 							<div
 								className={"btn"}
-								onClick={() => setVisible(anime)}
+								onClick={() => navigate(`detail/${id}`)}
 								style={{
 									position: "absolute",
 									right: "20px",

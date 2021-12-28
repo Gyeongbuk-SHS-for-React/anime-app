@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+body {
+  padding: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card {
+  border-radius: 25px;
+  border: 1px solid rgb(0, 0, 0);
+  position: relative;
+  box-shadow: 5px 5px 20px;
+  transition: all 0.5s;
+  transition-delay: 0.4s;
+  margin: auto;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.movie_card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 595px;
+  height: 350px;
+  
+}
+
+.movie_card > img {
+  border-radius: 25px 0px 0px 25px;
+}
+
+.movie_card > div {
+  width: 100%;
+}
+
+.movie_card span {
+  display: block;
+  font-weight: bold;
+  padding: 4px;
+}
+
+.btn {
+  padding: 5px;
   color: white;
+  width: 60px;
+  border: 1px solid lightgreen;
+  background-color: green;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal {
+  position: fixed;
+  width: 400px;
+  height: 600px;
+  background-color: white;
+  z-index: 100000;
+  padding: 20px;
+  top: calc(50vh - 310px);
+  left: calc(50vw - 210px);
 }
